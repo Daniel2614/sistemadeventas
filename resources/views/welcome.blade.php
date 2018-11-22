@@ -24,9 +24,22 @@
 
        <div class="container">
   <div class="card">
-    <div class="card-header"><h5>Captura Proveedores</h5></div>
+    <div class="card-header"><ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Capturar Proovedores</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Capturar Clientes</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Capturar Producto</a>
+  </li>
+</ul></div>
+
     <div class="card-body">
-      <form>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <form>
       <div class="row">
       
        <div class="col-12">
@@ -118,12 +131,164 @@
       </div>
       <div class="col-12 mt-3" style="float: right;" align="right">
            <div class="col-6 text-right">
-                <button class="btn btn-success btn-submit">Capturar Proovedor</button>
+                <button class="btn btn-success btn-submit" id="enviar1">Capturar Proovedor</button>
           </div>
         </div>
 
 
       </form>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+         <form>
+      <div class="row">
+      
+       <div class="col-12">
+            <h4 class="mb-3">Ingresar cliente : </h4>
+       </div>
+     
+           
+                <div class="col-sm-12 col-md-4 mb-3">
+
+                <label><strong>Nombre:</strong></label>
+
+                <input type="text" name="nombre2" class="form-control" placeholder="Nombre" required="">
+
+            </div>
+
+
+            <div class="col-sm-12 col-md-4 mb-3">
+
+                <label><strong>Apellido Paterno:</strong></label>
+
+                <input type="text" name="apellidop2" class="form-control" placeholder="Apellido Paterno" required="">
+
+            </div>
+
+            <div class="col-sm-12 col-md-4 mb-3">
+
+                <label><strong>Apellido Materno:</strong></label>
+
+                <input type="text" name="apellidom2" class="form-control" placeholder="Apellido Materno" required="">
+
+            </div>
+
+            <div class="col-sm-12 col-md-4 mb-3">
+
+                <label><strong>R.F:C:</strong></label>
+
+                <input type="text" name="rfc2" class="form-control" placeholder="R.F.C" required="">
+
+            </div>
+
+            <div class="col-sm-12 col-md-4 mb-3">
+
+                <label><strong>Calle:</strong></label>
+
+                <input type="text" name="calle2" class="form-control" placeholder="Calle" required="">
+
+            </div>
+
+            <div class="col-sm-12 col-md-4 mb-3">
+
+                <label><strong>Código Postal:</strong></label>
+
+                <input type="number" name="cp2" class="form-control" placeholder="Código Postal" required="">
+
+            </div>
+
+            <div class="col-sm-12 col-md-4 mb-3">
+
+                <label><strong>Ciudad:</strong></label>
+
+                <input type="text" name="ciudad2" class="form-control" placeholder="Ciudad" required="">
+
+            </div>
+
+            <div class="col-sm-12 col-md-4 mb-3">
+
+                <label><strong>Número:</strong></label>
+
+                <input type="number" name="numero2" class="form-control" placeholder="Número" required="">
+
+            </div>
+
+            
+                 
+      </div>
+      <div class="col-12 mt-3" style="float: right;" align="right">
+           <div class="col-6 text-right">
+                <button class="btn btn-success btn-submit" id="enviar2">Capturar Cliente</button>
+          </div>
+        </div>
+
+
+      </form>
+        </div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+          <form>
+      <div class="row">
+      
+       <div class="col-12">
+            <h4 class="mb-3">Ingresar producto : </h4>
+       </div>
+     
+           
+                <div class="col-sm-12 col-md-4 mb-3">
+
+                <label><strong>Codigo de barras:</strong></label>
+
+                <input type="number" name="codigo3" class="form-control" placeholder="Codigo de Barras" required="">
+
+            </div>
+
+
+            <div class="col-sm-12 col-md-4 mb-3">
+
+                <label><strong>Nombre del producto:</strong></label>
+
+                <input type="text" name="nombrep3" class="form-control" placeholder="Producto" required="">
+
+            </div>
+
+            <div class="col-sm-12 col-md-4 mb-3">
+
+                <label><strong>Descripción:</strong></label>
+
+                <input type="text" name="descripcion3" class="form-control" placeholder="Descripción" required="">
+
+            </div>
+
+            <div class="col-sm-12 col-md-4 mb-3">
+
+                <label><strong>Precio:</strong></label>
+
+                <input type="number" name="precio3" class="form-control" placeholder="Precio del producto" required="">
+
+            </div>
+
+            <div class="col-sm-12 col-md-4 mb-3">
+
+                <label><strong>Stock:</strong></label>
+
+                <input type="number" name="stock3" class="form-control" placeholder="Stock en tienda" required="">
+
+            </div>
+
+            
+
+            
+                 
+      </div>
+      <div class="col-12 mt-3" style="float: right;" align="right">
+           <div class="col-6 text-right">
+                <button class="btn btn-success btn-submit" id="enviar3">Capturar Producto</button>
+          </div>
+        </div>
+
+
+      </form>
+        </div>
+      </div>
       
         
    
@@ -158,10 +323,9 @@
 
 
 
-    $(".btn-submit").click(function(e){
+    $("#enviar1").click(function(e){
 
         e.preventDefault();
-
         var nombre = $("input[name=nombre]").val();
 
         var apellidop = $("input[name=apellidop]").val();
@@ -180,11 +344,12 @@
 
         var numero = $("input[name=numero]").val();
 
-        var web = $("input[name=web]").val();
+        var web =$("input[name=web]").val();
 
+        
+        if (nombre !="" && apellidop !="" && apellidom !="" && rfc !="" && telefono !="" && cp !="" && ciudad !="" && calle !="" && numero !="" && web!="") {
 
-
-        $.ajax({
+          $.ajax({
 
            type:'POST',
 
@@ -199,6 +364,97 @@
            }
 
         });
+
+        }else{
+          alert("te faltan datos");
+
+        }
+
+    });
+
+     $("#enviar2").click(function(e){
+
+        e.preventDefault();
+        var nombre2 = $("input[name=nombre2]").val();
+
+        var apellidop2 = $("input[name=apellidop2]").val();
+
+        var apellidom2 = $("input[name=apellidom2]").val();
+
+        var rfc2 = $("input[name=rfc2]").val();
+
+        var cp2 = $("input[name=cp2]").val();
+
+        var ciudad2 = $("input[name=ciudad2]").val();
+
+        var calle2 = $("input[name=calle2]").val();
+
+        var numero2 = $("input[name=numero2]").val();
+
+        
+        if (nombre2 !="" && apellidop2 !="" && apellidom2 !="" && rfc2 !="" && cp2 !="" && ciudad2 !="" && calle2 !="" && numero2 !="" ) {
+
+          $.ajax({
+
+           type:'POST',
+
+           url:'/ajaxRequest2',
+
+           data:{nombre2:nombre2, apellidop2:apellidop2, apellidom2:apellidom2, rfc2:rfc2, cp2:cp2, ciudad2:ciudad2,calle2:calle2,numero2:numero2},
+
+           success:function(data){
+
+              alert(data.success);
+
+           }
+
+        });
+
+        }else{
+          alert("te faltan datos");
+
+        }
+
+    });
+
+$("#enviar3").click(function(e){
+
+        e.preventDefault();
+        var codigo3 = $("input[name=codigo3]").val();
+
+        var nombrep3 = $("input[name=nombrep3]").val();
+
+        var descripcion3 = $("input[name=descripcion3]").val();
+
+        var precio3 = $("input[name=precio3]").val();
+
+        var stock3 = $("input[name=stock3]").val();
+
+        
+
+        
+        if (codigo3 !="" && nombrep3 !="" && descripcion3 !="" && precio3 !="" && stock3 !="" ) {
+
+          $.ajax({
+
+           type:'POST',
+
+           url:'/ajaxRequest3',
+
+           data:{codigo3:codigo3, nombrep3:nombrep3, descripcion3:descripcion3, precio3:precio3, stock3:stock3},
+
+           success:function(data){
+
+              alert(data.success);
+
+           }
+
+        });
+
+        }else{
+          alert("te faltan datos");
+
+        }
 
     });
 

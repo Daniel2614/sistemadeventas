@@ -18,5 +18,7 @@ Route::get('/', function () {
 //Route::get('ajaxRequest', 'HomeController@ajaxRequest');
 
 Route::post('ajaxRequest', 'HomeController@ajaxRequestPost');
+Route::post('ajaxRequest2', 'HomeController@ajaxRequestPost2');
+Route::post('ajaxRequest3', 'HomeController@ajaxRequestPost3');
 
 
