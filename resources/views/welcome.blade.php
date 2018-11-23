@@ -34,6 +34,10 @@
   <li class="nav-item">
     <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Capturar Producto</a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" id="consulta-tab" data-toggle="tab" href="#consulta" role="tab" aria-controls="consulta" aria-selected="false">Consultas</a>
+  </li>
+
 </ul></div>
 
     <div class="card-body">
@@ -288,6 +292,128 @@
 
       </form>
         </div>
+
+        <div class="tab-pane fade" id="consulta" role="tabpanel" aria-labelledby="consulta">
+          <form>
+      <div class="row">
+      
+       <h3>Catalogo de proveedores</h3>
+       <table class="table table-hover text-center">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido paterno</th>
+      <th scope="col">Apelido materno</th>
+      <th scope="col">RFC</th>
+      <th scope="col">Telefono</th>
+      <th scope="col">C.P.</th>
+      <th scope="col">Ciudad</th>
+      <th scope="col">Calle</th>
+      <th scope="col">Numero</th>
+      <th scope="col">Web</th>
+      <th>Acción</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+
+    @foreach($consulta1 as $proveedor)
+                            <tr>
+                             <td class="text-center align-middle">{{$proveedor->id}}</td>
+                             <td class="text-center align-middle">{{$proveedor->nombre}}</td>
+                             <td class="text-center align-middle">{{$proveedor->apellidop}}</td>
+                             <td class="text-center align-middle">{{$proveedor->apellidom}}</td>
+                             <td class="text-center align-middle">{{$proveedor->rfc}}</td>
+                             <td class="text-center align-middle">{{$proveedor->telefono}}</td>
+                             <td class="text-center align-middle">{{$proveedor->cp}}</td>
+                             <td class="text-center align-middle">{{$proveedor->ciudad}}</td>
+                             <td class="text-center align-middle">{{$proveedor->calle}}</td>
+                             <td class="text-center align-middle">{{$proveedor->numero}}</td>
+                             <td class="text-center align-middle">{{$proveedor->web}}</td>
+                             <td class="text-center align-middle"><button type="button" onclick="borrar1('{{$proveedor->id}}','proovedor')" class="btn btn-danger">Borrar</button></td>
+                            
+                            </tr>
+                            </tr>
+                       
+                       @endforeach
+
+  </tbody>
+</table>
+<h3>Catalogo Clientes</h3>
+<table class="table table-hover text-center">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido paterno</th>
+      <th scope="col">Apelido materno</th>
+      <th scope="col">RFC</th>
+      <th scope="col">C.P.</th>
+      <th scope="col">Ciudad</th>
+      <th scope="col">Calle</th>
+      <th scope="col">Numero</th>
+      <th>Acción</th>
+      
+    </tr>
+  </thead>
+   
+  <tbody>
+   @foreach($consulta2 as $cliente)
+                            <tr>
+                             <td class="text-center align-middle">{{$cliente->id}}</td>
+                             <td class="text-center align-middle">{{$cliente->nombre}}</td>
+                             <td class="text-center align-middle">{{$cliente->apellidop}}</td>
+                             <td class="text-center align-middle">{{$cliente->apellidom}}</td>
+                             <td class="text-center align-middle">{{$cliente->rfc}}</td>
+                             <td class="text-center align-middle">{{$cliente->cp}}</td>
+                             <td class="text-center align-middle">{{$cliente->ciudad}}</td>
+                             <td class="text-center align-middle">{{$cliente->calle}}</td>
+                             <td class="text-center align-middle">{{$cliente->numero}}</td>
+                             <td class="text-center align-middle"><button type="button" onclick="borrar1('{{$proveedor->id}}','cliente')" class="btn btn-danger">Borrar</button></td>
+                            
+                            </tr>
+                            </tr>
+                       
+                       @endforeach
+  </tbody>
+</table>
+<h3>Catalogo de productos</h3>
+<table class="table table-hover text-center">
+  <thead>
+    <tr>
+     <th scope="col">ID</th>
+      <th scope="col">Codigo</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Stock</th>
+      <th>Acción</th>
+     </tr>
+  </thead>
+  <tbody>
+  @foreach($consulta3 as $producto)
+                            <tr>
+                             <td class="text-center align-middle">{{$producto->id}}</td>
+                             <td class="text-center align-middle">{{$producto->codigo}}</td>
+                             <td class="text-center align-middle">{{$producto->nombrep}}</td>
+                             <td class="text-center align-middle">{{$producto->descripcion}}</td>
+                             <td class="text-center align-middle">{{$producto->precio}}</td>
+                             <td class="text-center align-middle">{{$producto->stock}}</td>
+                             <td class="text-center align-middle"><button type="button" onclick="borrar1('{{$proveedor->id}}','producto')" class="btn btn-danger">Borrar</button></td>                   
+                            
+                            </tr>
+                            </tr>
+                       
+                       @endforeach
+  </tbody>
+</table>
+        </div>
+
+
+      </form>
+        </div>
+
       </div>
       
         
@@ -457,6 +583,29 @@ $("#enviar3").click(function(e){
         }
 
     });
+
+function borrar1(id,tipo){
+  var id=id;
+  var tipo = tipo;
+  $.ajax({
+
+           type:'POST',
+
+           url:'/borrar1',
+
+           data:{id:id, tipo:tipo},
+
+           success:function(data){
+
+              alert(data.success);
+
+           }
+
+        });
+ 
+
+
+}
 
 </script>
 </html>

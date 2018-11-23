@@ -130,7 +130,34 @@ public function ajaxRequestPost3(Request $request)
        
     }
 
+    public function consulta1()
+    {
+      $consulta1 = Proveedor::paginate(10);
+      $consulta2 = Cliente::paginate(10);
+      $consulta3 = Producto::paginate(10);
+      
+      return view('welcome')
+                        ->with(['consulta1'=>$consulta1])
+                        ->with(['consulta2' => $consulta2])
+                        ->with(['consulta3'=>$consulta3])
+                        ->with(['pageHasChildren' => 'read'])
+                        ->with(['pageChilden'     => 'personaindex']);
 
+   
+    }
+    public function borrar1(Request $request)
+    {
+        $id=$request->id;
+        $tipo=$request->tipo;
+
+      return response()->json(['success'=>$request->tipo]);
+        
+
+   
+    }
+
+
+    
     /**
      * Show the form for creating a new resource.
      *
