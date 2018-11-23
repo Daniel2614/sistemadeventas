@@ -370,7 +370,7 @@
                              <td class="text-center align-middle">{{$cliente->ciudad}}</td>
                              <td class="text-center align-middle">{{$cliente->calle}}</td>
                              <td class="text-center align-middle">{{$cliente->numero}}</td>
-                             <td class="text-center align-middle"><button type="button" onclick="borrar1('{{$proveedor->id}}','cliente')" class="btn btn-danger">Borrar</button></td>
+                             <td class="text-center align-middle"><button type="button" onclick="borrar1('{{$cliente->id}}','cliente')" class="btn btn-danger">Borrar</button></td>
                             
                             </tr>
                             </tr>
@@ -400,7 +400,7 @@
                              <td class="text-center align-middle">{{$producto->descripcion}}</td>
                              <td class="text-center align-middle">{{$producto->precio}}</td>
                              <td class="text-center align-middle">{{$producto->stock}}</td>
-                             <td class="text-center align-middle"><button type="button" onclick="borrar1('{{$proveedor->id}}','producto')" class="btn btn-danger">Borrar</button></td>                   
+                             <td class="text-center align-middle"><button type="button" onclick="borrar1('{{$producto->id}}','producto')" class="btn btn-danger">Borrar</button></td>                   
                             
                             </tr>
                             </tr>

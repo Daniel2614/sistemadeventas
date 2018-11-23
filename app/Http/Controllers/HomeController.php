@@ -150,6 +150,25 @@ public function ajaxRequestPost3(Request $request)
         $id=$request->id;
         $tipo=$request->tipo;
 
+       if ($tipo == "proovedor") {
+           
+           $borrar = Proveedor::find($id);
+           $borrar->delete();
+
+       }
+       else if ($tipo == "cliente") {
+           
+           $borrar = Cliente::find($id);
+           $borrar->delete();
+
+       }
+       else if ($tipo == "producto") {
+           
+           $borrar = Producto::find($id);
+           $borrar->delete();
+
+       }
+
       return response()->json(['success'=>$request->tipo]);
         
 
