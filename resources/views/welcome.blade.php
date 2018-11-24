@@ -302,7 +302,8 @@
          <h3>Catalogo de proveedores</h3>
          <hr>
        </div>
-       <table class="table table-hover text-center">
+       <div class="table-responsive">
+         <table class="table table-hover text-center">
   <thead>
     <tr>
       <th scope="col">ID</th>
@@ -344,12 +345,14 @@
 
   </tbody>
 </table>
+       </div>
 <div class="col-12 text-center">
         <hr>
          <h3>Catalogo de Clientes</h3>
          <hr>
        </div>
-<table class="table table-hover text-center">
+<div class="table-responsive">
+  <table class="table table-hover text-center">
   <thead>
     <tr>
       <th scope="col">ID</th>
@@ -386,12 +389,14 @@
                        @endforeach
   </tbody>
 </table>
+</div>
 <div class="col-12 text-center">
         <hr>
          <h3>Catalogo de Productos</h3>
          <hr>
        </div>
-<table class="table table-hover text-center">
+    <div class="table-responsive">
+      <table class="table table-hover text-center">
   <thead>
     <tr>
      <th scope="col">ID</th>
@@ -420,6 +425,7 @@
                        @endforeach
   </tbody>
 </table>
+    </div>
         </div>
 
 
