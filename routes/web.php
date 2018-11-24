@@ -20,7 +20,7 @@ Route::get('/', function () {
 Route::post('ajaxRequest', 'HomeController@ajaxRequestPost');
 Route::post('ajaxRequest2', 'HomeController@ajaxRequestPost2');
 Route::post('ajaxRequest3', 'HomeController@ajaxRequestPost3');
-Route::get('consulta1', 'HomeController@consulta1');
+Route::get('/', 'HomeController@consulta1');
 Route::post('borrar1', 'HomeController@borrar1');
 
 

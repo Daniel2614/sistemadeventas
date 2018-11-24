@@ -297,7 +297,11 @@
           <form>
       <div class="row">
       
-       <h3>Catalogo de proveedores</h3>
+       <div class="col-12 text-center">
+        <hr>
+         <h3>Catalogo de proveedores</h3>
+         <hr>
+       </div>
        <table class="table table-hover text-center">
   <thead>
     <tr>
@@ -319,7 +323,7 @@
   <tbody>
 
     @foreach($consulta1 as $proveedor)
-                            <tr>
+                            <tr id="proovedor{{$proveedor->id}}">
                              <td class="text-center align-middle">{{$proveedor->id}}</td>
                              <td class="text-center align-middle">{{$proveedor->nombre}}</td>
                              <td class="text-center align-middle">{{$proveedor->apellidop}}</td>
@@ -340,7 +344,11 @@
 
   </tbody>
 </table>
-<h3>Catalogo Clientes</h3>
+<div class="col-12 text-center">
+        <hr>
+         <h3>Catalogo de Clientes</h3>
+         <hr>
+       </div>
 <table class="table table-hover text-center">
   <thead>
     <tr>
@@ -360,7 +368,7 @@
    
   <tbody>
    @foreach($consulta2 as $cliente)
-                            <tr>
+                            <tr id="cliente{{$cliente->id}}">
                              <td class="text-center align-middle">{{$cliente->id}}</td>
                              <td class="text-center align-middle">{{$cliente->nombre}}</td>
                              <td class="text-center align-middle">{{$cliente->apellidop}}</td>
@@ -370,7 +378,7 @@
                              <td class="text-center align-middle">{{$cliente->ciudad}}</td>
                              <td class="text-center align-middle">{{$cliente->calle}}</td>
                              <td class="text-center align-middle">{{$cliente->numero}}</td>
-                             <td class="text-center align-middle"><button type="button" onclick="borrar1('{{$cliente->id}}','cliente')" class="btn btn-danger">Borrar</button></td>
+                             <td class="text-center align-middle"><button type="button" onclick="borrar2('{{$cliente->id}}','cliente')" class="btn btn-danger">Borrar</button></td>
                             
                             </tr>
                             </tr>
@@ -378,7 +386,11 @@
                        @endforeach
   </tbody>
 </table>
-<h3>Catalogo de productos</h3>
+<div class="col-12 text-center">
+        <hr>
+         <h3>Catalogo de Productos</h3>
+         <hr>
+       </div>
 <table class="table table-hover text-center">
   <thead>
     <tr>
@@ -393,14 +405,14 @@
   </thead>
   <tbody>
   @foreach($consulta3 as $producto)
-                            <tr>
+                            <tr id="producto{{$producto->id}}">
                              <td class="text-center align-middle">{{$producto->id}}</td>
                              <td class="text-center align-middle">{{$producto->codigo}}</td>
                              <td class="text-center align-middle">{{$producto->nombrep}}</td>
                              <td class="text-center align-middle">{{$producto->descripcion}}</td>
                              <td class="text-center align-middle">{{$producto->precio}}</td>
                              <td class="text-center align-middle">{{$producto->stock}}</td>
-                             <td class="text-center align-middle"><button type="button" onclick="borrar1('{{$producto->id}}','producto')" class="btn btn-danger">Borrar</button></td>                   
+                             <td class="text-center align-middle"><button type="button" onclick="borrar3('{{$producto->id}}','producto')" class="btn btn-danger">Borrar</button></td>                   
                             
                             </tr>
                             </tr>
@@ -434,7 +446,7 @@
     <script src="{{asset('bootstrap4/popper.min.js')}}"></script>
 
      <script src="{{asset('bootstrap4/js/bootstrap.min.js')}}"></script>
-
+    <script src="{{asset('sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
     </body>
     <script type="text/javascript">
     $.ajaxSetup({
@@ -485,7 +497,13 @@
 
            success:function(data){
 
-              alert(data.success);
+              swal({
+
+                     type: 'success',
+                     title: 'Proveedor guardado con exito',
+                     showConfirmButton: false,
+                     timer: 1500
+                  });
 
            }
 
@@ -530,7 +548,13 @@
 
            success:function(data){
 
-              alert(data.success);
+              swal({
+
+                     type: 'success',
+                     title: 'Cliente guardado con exito',
+                     showConfirmButton: false,
+                     timer: 1500
+                  });
 
            }
 
@@ -571,7 +595,13 @@ $("#enviar3").click(function(e){
 
            success:function(data){
 
-              alert(data.success);
+              swal({
+
+                     type: 'success',
+                     title: 'Producto guardado con exito',
+                     showConfirmButton: false,
+                     timer: 1500
+                  });
 
            }
 
@@ -587,21 +617,133 @@ $("#enviar3").click(function(e){
 function borrar1(id,tipo){
   var id=id;
   var tipo = tipo;
-  $.ajax({
+  var filaborrar='proovedor'+id;
+  console.log(filaborrar);
+  swal({
+  title: '¿Desea borrar este cliente?',
+  text: "!Se eliminara de su base de datos!",
+  type: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Si,borrar!',
+  cancelButtonText:"Cancelar"
+}).then((result) => {
+  if (result.value) {
+      $.ajax({
 
-           type:'POST',
+            type:'POST',
 
-           url:'/borrar1',
+            url:'/borrar1',
 
-           data:{id:id, tipo:tipo},
+            data:{id:id, tipo:tipo},
 
-           success:function(data){
+            success:function(data){
+                 var el = document.getElementById(filaborrar);
+     el.parentNode.removeChild(el);
+            }
 
-              alert(data.success);
+         });
+    swal(
+      'Borrado!',
+      'El proveedor se ha borrado de manera exitosa!',
+      'success'
+    )
+  }
+})
 
-           }
+  
+   
+ 
 
-        });
+
+}
+function borrar2(id,tipo){
+  var id=id;
+  var tipo = tipo;
+  var filaborrar='cliente'+id;
+  console.log(filaborrar);
+  swal({
+  title: '¿Desea borrar este cliente?',
+  text: "!Se eliminara de su base de datos!",
+  type: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Si, borrar!',
+  cancelButtonText:"Cancelar"
+}).then((result) => {
+    
+  if (result.value) {
+    $.ajax({
+
+            type:'POST',
+
+            url:'/borrar1',
+
+            data:{id:id, tipo:tipo},
+
+            success:function(data){
+                 var el = document.getElementById(filaborrar);
+     el.parentNode.removeChild(el);
+              
+
+            }
+
+         });
+    swal(
+      'Borrado!',
+      'El cliente se ha borrado de manera exitosa!',
+      'success'
+    )
+  }
+})
+   
+ 
+
+
+}
+function borrar3(id,tipo){
+  var id=id;
+  var tipo = tipo;
+  var filaborrar='producto'+id;
+  console.log(filaborrar);
+  swal({
+  title: '¿Desea borrar este producto?',
+  text: "!Se eliminara de su base de datos!",
+  type: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+   cancelButtonColor: '#d33',
+  confirmButtonText: 'Si,borrar!',
+   cancelButtonText:"Cancelar"
+}).then((result) => {
+   
+  if (result.value) {
+     $.ajax({
+
+            type:'POST',
+
+            url:'/borrar1',
+
+            data:{id:id, tipo:tipo},
+
+            success:function(data){
+                 var el = document.getElementById(filaborrar);
+     el.parentNode.removeChild(el);
+              
+
+            }
+
+         });
+    swal(
+      'Borrado!',
+      'El producto se ha borrado de manera exitosa!',
+      'success'
+    )
+  }
+})
+   
  
 
 
