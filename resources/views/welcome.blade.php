@@ -10,12 +10,25 @@
         <!-- Styles hola -->
         
     </head>
+    <style type="text/css">
+  .bg-principal {
+    background-image: url("{{ asset( 'imagenes/portada.png') }}");
+    
+  }
+  @font-face {
+    font-family: Anton, 'cursive';
+    src: url('{{public_path('Anton-Regular.ttf')}}');
+  }
+  .letrasblancas h1, h3{
+    color: maroon;
+  }
+</style>
     <body>
-       <div class="container">
-           <div class="jumbotron">
-              <h1 class="display-4 text-center">Proyecto Sistema de Ventas </h1>
+       <div class="container letrasblancas">
+           <div class="jumbotron bg-principal">
+              <h1 class="display-1 text-center" style="font-family: Anton;">Evaluación docente </h1>
               <hr class="my-4">
-              <h3 class="text-center">Bases de Datos I</h3>
+              <h3 class="text-center" style="font-family: Anton; font-size: 3rem; ">Departamento de evaluación docente</h3>
                 <div class="text-center">
                     <img src="{{ asset('imagenes/logo.png') }}"  alt="">
                 </div>

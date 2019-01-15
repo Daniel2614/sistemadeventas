@@ -170,6 +170,7 @@ public function ajaxRequestPost3(Request $request)
        }
 
       return response()->json(['success'=>$request->tipo]);
+      
         
 
    
