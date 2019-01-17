@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class SistemaventaProducto extends Migration
+class EvaluacionLicenciaturasEscolarizado extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,12 @@ class SistemaventaProducto extends Migration
      */
     public function up()
     {
-        Schema::create('sistemadeventa_producto', function(Blueprint $table) {
+         Schema::create('evaluacion_licenciaturas_escolarizado', function(Blueprint $table){
             $table->increments('id');
-            $table->string('codigo');
-            $table->string('nombrep')->nullable();
-            $table->string('descripcion');
-            $table->string('precio');
-            $table->string('stock');
+            $table->string('clave');
+            $table->string('nombre');
+           
             
-            
-     
             $table->timestamps();
         });
     }
@@ -34,6 +30,6 @@ class SistemaventaProducto extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('evaluacion_licenciaturas_escolarizado');
     }
 }
