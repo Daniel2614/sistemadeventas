@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use App\Proveedor;
-use App\Cliente;
-use App\Producto;
+
 
 class HomeController extends Controller
 {
@@ -132,16 +130,16 @@ public function ajaxRequestPost3(Request $request)
 
     public function consulta1()
     {
-      $consulta1 = Proveedor::paginate(10);
-      $consulta2 = Cliente::paginate(10);
-      $consulta3 = Producto::paginate(10);
+      // $consulta1 = Proveedor::paginate(10);
+      // $consulta2 = Cliente::paginate(10);
+      // $consulta3 = Producto::paginate(10);
       
-      return view('welcome')
-                        ->with(['consulta1'=>$consulta1])
-                        ->with(['consulta2' => $consulta2])
-                        ->with(['consulta3'=>$consulta3])
-                        ->with(['pageHasChildren' => 'read'])
-                        ->with(['pageChilden'     => 'personaindex']);
+      // return view('welcome')
+      //                   ->with(['consulta1'=>$consulta1])
+      //                   ->with(['consulta2' => $consulta2])
+      //                   ->with(['consulta3'=>$consulta3])
+      //                   ->with(['pageHasChildren' => 'read'])
+      //                   ->with(['pageChilden'     => 'personaindex']);
 
    
     }
