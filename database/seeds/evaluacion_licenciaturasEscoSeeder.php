@@ -19,7 +19,8 @@ class evaluacion_licenciaturasEscoSeeder extends Seeder
         	['id'=> 5, 'clave'=>'IM', 'nombre'=>'INGENIERÍA MECATRONICA'],
         	['id'=> 6, 'clave'=>'IN', 'nombre'=>'NEGOCIOS INTERNACIONALES'],
         	['id'=> 7, 'clave'=>'LM', 'nombre'=>'MERCADOTECNIA'],
-        	['id'=> 8, 'clave'=>'PS', 'nombre'=>'PSICOLOGÍA']
+        	['id'=> 8, 'clave'=>'PS', 'nombre'=>'PSICOLOGÍA'],
+            ['id'=> 9, 'clave'=>'CX', 'nombre'=>'CELEUX']
            
         ]);
     }

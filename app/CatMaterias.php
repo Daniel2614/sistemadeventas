@@ -11,6 +11,8 @@ class CatMaterias extends Model
     protected $fillable = [
 
     	'id',
+    	'semestre',
+    	'clave',
     	'materia',
     	
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class EvaluacionMateriasesco extends Migration
+class EvaluacionCriterios extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class EvaluacionMateriasesco extends Migration
      */
     public function up()
     {
-        Schema::create('evaluacion_materiasesco', function(Blueprint $table){
+        Schema::create('evaluacion_criterios', function(Blueprint $table){
             $table->increments('id');
-            $table->string('semestre');
-            $table->string('clave');
-            $table->string('materia');
+            $table->string('criterio');
+           
         
            
             
@@ -32,6 +31,6 @@ class EvaluacionMateriasesco extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('evaluacion_materiasesco');
+        Schema::dropIfExists('evaluacion_criterios');
     }
 }
