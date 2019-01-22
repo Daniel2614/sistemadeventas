@@ -110,6 +110,30 @@
                 display: none;
             }
             
+            @media (max-width: 575.98px) { 
+                 html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                
+            }
+
+            .full-height {
+              
+            }
+            .full-height2 {
+               
+            }
+            .title {
+                font-size: 40px;
+            }
+            .subtitle {
+               
+            }
+            .m-b-md {
+                
+            }
+             }
         </style>
     </head>
     <body>
